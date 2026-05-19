@@ -12,12 +12,12 @@ class Address {
   });
 
   factory Address.fromJson(Map<String, dynamic> json) {
-  	return Address(
-			street: json['street'] as String? ?? '',
-			suite: json['suite'] as String? ?? '',
-			city: json['city'] as String? ?? '',
-			zipcode: json['zipcode'] as String? ?? ''
-		);
+    return Address(
+      street: json['street'] as String? ?? '',
+      suite: json['suite'] as String? ?? '',
+      city: json['city'] as String? ?? '',
+      zipcode: json['zipcode'] as String? ?? '',
+    );
   }
 
   String get formatted => '$street, $suite\n$city, $zipcode';

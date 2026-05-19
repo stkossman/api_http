@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'screens/users_screen.dart'; 
+import 'screens/users_screen.dart';
 
 void main() {
   runApp(const ProviderScope(child: UsersApp()));
@@ -61,7 +61,10 @@ class UsersApp extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
         ),
         textTheme: const TextTheme(
-          titleMedium: TextStyle(fontWeight: FontWeight.w600, letterSpacing: -0.2),
+          titleMedium: TextStyle(
+            fontWeight: FontWeight.w600,
+            letterSpacing: -0.2,
+          ),
           bodyMedium: TextStyle(color: Color(0xFF475569), height: 1.5),
           bodySmall: TextStyle(color: Color(0xFF94A3B8)),
         ),
@@ -70,7 +73,7 @@ class UsersApp extends StatelessWidget {
           hintStyle: TextStyle(color: Color(0xFF94A3B8)),
         ),
       ),
-      home: const UsersScreen(), 
+      home: const UsersScreen(),
     );
   }
 }
