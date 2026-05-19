@@ -11,16 +11,35 @@ class ApiService {
 
   const ApiService(this._client);
 
-  Future<List<User>> getUsers() async {
-    final uri = Uri.parse('$_baseUrl/users');
-    final response = await _client.get(uri);
+  static List<User>? _cachedUsers;
 
-    if (response.statusCode == 200) {
-      final List<dynamic> decodedJson = json.decode(response.body);
-      return decodedJson
-          .map((dynamic item) => User.fromJson(item as Map<String, dynamic>))
-          .toList();
+  Stream<List<User>> getUsers() async* {
+    if (_cachedUsers != null) {
+      yield _cachedUsers!;
     }
-    throw Exception('Server returned status code: ${response.statusCode}');
+
+    try {
+      final uri = Uri.parse('$_baseUrl/users');
+      final response = await _client.get(uri);
+
+      if (response.statusCode == 200) {
+        final List<dynamic> decodedJson = json.decode(response.body);
+        final users = decodedJson
+            .map((dynamic item) => User.fromJson(item as Map<String, dynamic>))
+            .toList();
+        _cachedUsers = users;
+        yield users;
+      } else {
+        if (_cachedUsers == null) {
+          throw Exception(
+            'Server returned status code: ${response.statusCode}',
+          );
+        }
+      }
+    } catch (e) {
+      if (_cachedUsers == null) {
+        rethrow;
+      }
+    }
   }
 }

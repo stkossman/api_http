@@ -20,7 +20,7 @@ ApiService apiService(Ref ref) {
 }
 
 @riverpod
-Future<List<User>> users(Ref ref) async {
+Stream<List<User>> users(Ref ref) {
   final apiService = ref.watch(apiServiceProvider);
   return apiService.getUsers();
 }

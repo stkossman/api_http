@@ -99,9 +99,9 @@ final class UsersProvider
         $FunctionalProvider<
           AsyncValue<List<User>>,
           List<User>,
-          FutureOr<List<User>>
+          Stream<List<User>>
         >
-    with $FutureModifier<List<User>>, $FutureProvider<List<User>> {
+    with $FutureModifier<List<User>>, $StreamProvider<List<User>> {
   UsersProvider._()
     : super(
         from: null,
@@ -118,13 +118,13 @@ final class UsersProvider
 
   @$internal
   @override
-  $FutureProviderElement<List<User>> $createElement($ProviderPointer pointer) =>
-      $FutureProviderElement(pointer);
+  $StreamProviderElement<List<User>> $createElement($ProviderPointer pointer) =>
+      $StreamProviderElement(pointer);
 
   @override
-  FutureOr<List<User>> create(Ref ref) {
+  Stream<List<User>> create(Ref ref) {
     return users(ref);
   }
 }
 
-String _$usersHash() => r'b42a2279d9557badcfc486e5fb8200f2f0bbb5aa';
+String _$usersHash() => r'110d597411465cb816fba81e2c6d752464847140';
