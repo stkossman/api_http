@@ -56,17 +56,18 @@ lib/
 ## Screenshots
 
 ### General View
-<img width="375" height="811" alt="image" src="https://github.com/user-attachments/assets/468b50de-c55b-42ae-aa15-3dd884f8bede" />
+<img width="377" height="813" alt="image" src="https://github.com/user-attachments/assets/a94cf6ee-cc1c-4501-940d-5a7fae625be8" />
 
 ---
 
 ### Search
-<img width="378" height="812" alt="image" src="https://github.com/user-attachments/assets/5b83443f-4112-4f7b-ab33-72060bec7105" />
+<img width="381" height="818" alt="image" src="https://github.com/user-attachments/assets/55b42ed0-40da-4347-9a66-a3471b7392e0" />
 
 ---
 
 ### User Card
-<img width="373" height="810" alt="image" src="https://github.com/user-attachments/assets/b20d78cd-6e52-4145-a151-6ca8a72a6728" />
+<img width="376" height="815" alt="image" src="https://github.com/user-attachments/assets/098386ef-396e-4f41-8dc2-ff16e6447cd7" />
+
 
 ## Performed by
 Andrii ([Kossman](https://github.com/stkossman)) Stavskyi
