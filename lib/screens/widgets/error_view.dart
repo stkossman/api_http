@@ -33,9 +33,28 @@ class ErrorView extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.black,
+                backgroundColor: colorScheme.primaryContainer,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.zero,
+                  side: BorderSide(color: Colors.black, width: 3),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 12,
+                ),
+              ),
               onPressed: onRetry,
               icon: const Icon(Icons.refresh),
-              label: const Text(AppStrings.retry),
+              label: const Text(
+                AppStrings.retry,
+                style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  fontFamily: 'Courier',
+                  color: Colors.black,
+                ),
+              ),
             ),
           ],
         ),

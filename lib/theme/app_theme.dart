@@ -3,31 +3,31 @@ import 'package:flutter/material.dart';
 class AppColors {
   AppColors._();
 
-  static const Color primary = Color(0xFF2563EB);
+  static const Color primary = Colors.black;
   static const Color onPrimary = Colors.white;
-  static const Color primaryContainer = Color(0xFFDBEAFE);
-  static const Color onPrimaryContainer = Color(0xFF1E40AF);
+  static const Color primaryContainer = Color(0xFFE2FF00);
+  static const Color onPrimaryContainer = Colors.black;
 
-  static const Color secondary = Color(0xFF64748B);
-  static const Color onSecondary = Colors.white;
-  static const Color secondaryContainer = Color(0xFFF1F5F9);
-  static const Color onSecondaryContainer = Color(0xFF334155);
+  static const Color secondary = Color(0xFF00FF00);
+  static const Color onSecondary = Colors.black;
+  static const Color secondaryContainer = Color(0xFFFF00FF);
+  static const Color onSecondaryContainer = Colors.black;
 
-  static const Color surface = Color(0xFFFAFAFA);
-  static const Color onSurface = Color(0xFF0F172A);
-  static const Color surfaceContainerHighest = Color(0xFFE2E8F0);
+  static const Color surface = Colors.white;
+  static const Color onSurface = Colors.black;
+  static const Color surfaceContainerHighest = Color(0xFFD0D0D0);
 
-  static const Color error = Color(0xFFDC2626);
+  static const Color error = Color(0xFFFF0000);
   static const Color onError = Colors.white;
-  static const Color errorContainer = Color(0xFFFEE2E2);
-  static const Color onErrorContainer = Color(0xFF991B1B);
+  static const Color errorContainer = Color(0xFFFF0000);
+  static const Color onErrorContainer = Colors.white;
 
-  static const Color outline = Color(0xFFCBD5E1);
-  static const Color outlineVariant = Color(0xFFE2E8F0);
+  static const Color outline = Colors.black;
+  static const Color outlineVariant = Colors.black;
 
-  static const Color scaffoldBackground = Color(0xFFF8FAFC);
-  static const Color textBody = Color(0xFF475569);
-  static const Color textBodySmall = Color(0xFF94A3B8);
+  static const Color scaffoldBackground = Color(0xFFF4F4F0);
+  static const Color textBody = Colors.black;
+  static const Color textBodySmall = Colors.black87;
 }
 
 class AppTheme {
@@ -61,35 +61,63 @@ class AppTheme {
         backgroundColor: Colors.white,
         foregroundColor: AppColors.onSurface,
         elevation: 0,
-        scrolledUnderElevation: 1,
-        shadowColor: Color(0x1A000000),
+        scrolledUnderElevation: 0,
+        shape: Border(bottom: BorderSide(color: Colors.black, width: 4)),
         titleTextStyle: TextStyle(
           color: AppColors.onSurface,
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
-          letterSpacing: -0.3,
+          fontSize: 22,
+          fontWeight: FontWeight.w900,
+          letterSpacing: 2.0,
+          fontFamily: 'Courier',
         ),
       ),
-      cardTheme: CardThemeData(
+      cardTheme: const CardThemeData(
         elevation: 0,
         color: Colors.white,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-          side: const BorderSide(color: AppColors.outlineVariant),
+          borderRadius: BorderRadius.zero,
+          side: BorderSide(color: Colors.black, width: 3),
         ),
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+        margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       ),
       textTheme: const TextTheme(
         titleMedium: TextStyle(
-          fontWeight: FontWeight.w600,
-          letterSpacing: -0.2,
+          fontWeight: FontWeight.w900,
+          letterSpacing: 0.5,
+          fontFamily: 'Courier',
         ),
-        bodyMedium: TextStyle(color: AppColors.textBody, height: 1.5),
-        bodySmall: TextStyle(color: AppColors.textBodySmall),
+        bodyMedium: TextStyle(
+          color: AppColors.textBody,
+          height: 1.5,
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Courier',
+        ),
+        bodySmall: TextStyle(
+          color: AppColors.textBodySmall,
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Courier',
+        ),
       ),
       inputDecorationTheme: const InputDecorationTheme(
-        border: InputBorder.none,
-        hintStyle: TextStyle(color: AppColors.textBodySmall),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.zero,
+          borderSide: BorderSide(color: Colors.black, width: 3),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.zero,
+          borderSide: BorderSide(color: Colors.black, width: 3),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.zero,
+          borderSide: BorderSide(color: Colors.black, width: 4),
+        ),
+        hintStyle: TextStyle(
+          color: AppColors.textBodySmall,
+          fontFamily: 'Courier',
+          fontWeight: FontWeight.bold,
+        ),
+        filled: true,
+        fillColor: Colors.white,
       ),
     );
   }
