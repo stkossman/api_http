@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../models/user.dart';
+import '../../constants/app_strings.dart';
 
 class UserDetailDialog extends StatelessWidget {
   final User user;
@@ -13,7 +14,6 @@ class UserDetailDialog extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return AlertDialog(
-      backgroundColor: colorScheme.surface,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       title: Row(
         children: [
@@ -37,28 +37,38 @@ class UserDetailDialog extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            _DetailRow(
-              icon: Icons.email_outlined,
-              label: 'Email',
-              value: user.email,
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: Icon(Icons.email_outlined, color: colorScheme.secondary),
+              title: const Text(AppStrings.email),
+              subtitle: Text(user.email),
             ),
-            _DetailRow(
-              icon: Icons.phone_outlined,
-              label: 'Phone',
-              value: user.phone,
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: Icon(Icons.phone_outlined, color: colorScheme.secondary),
+              title: const Text(AppStrings.phone),
+              subtitle: Text(user.phone),
             ),
-            _DetailRow(
-              icon: Icons.business_outlined,
-              label: 'Company',
-              value: user.companyName,
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: Icon(
+                Icons.business_outlined,
+                color: colorScheme.secondary,
+              ),
+              title: const Text(AppStrings.company),
+              subtitle: Text(user.companyName),
             ),
-            _DetailRow(
-              icon: Icons.language_outlined,
-              label: 'Website',
-              value: user.website,
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: Icon(
+                Icons.language_outlined,
+                color: colorScheme.secondary,
+              ),
+              title: const Text(AppStrings.website),
+              subtitle: Text(user.website),
             ),
             const Divider(height: 24),
-            Text('Address', style: textTheme.titleMedium),
+            Text(AppStrings.address, style: textTheme.titleMedium),
             const SizedBox(height: 8),
             Text(user.address.formatted, style: textTheme.bodyMedium),
           ],
@@ -67,47 +77,9 @@ class UserDetailDialog extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Close'),
+          child: const Text(AppStrings.close),
         ),
       ],
-    );
-  }
-}
-
-class _DetailRow extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final String value;
-
-  const _DetailRow({
-    required this.icon,
-    required this.label,
-    required this.value,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final colorScheme = Theme.of(context).colorScheme;
-
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 12.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(icon, size: 20, color: colorScheme.secondary),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(label, style: textTheme.bodySmall),
-                Text(value, style: textTheme.bodyMedium),
-              ],
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

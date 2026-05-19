@@ -30,9 +30,9 @@ class User {
       phone: json['phone'] as String? ?? '',
       website: json['website'] as String? ?? '',
       companyName: json['company']?['name'] as String? ?? '',
-      address: json['address'] != null
-          ? Address.fromJson(json['address'] as Map<String, dynamic>)
-          : const Address(street: '', suite: '', city: '', zipcode: ''),
+      address: Address.fromJson(
+        (json['address'] as Map<String, dynamic>?) ?? {},
+      ),
     );
   }
 }

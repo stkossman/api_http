@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../constants/app_strings.dart';
+
 class ErrorView extends StatelessWidget {
   final String message;
   final VoidCallback onRetry;
@@ -20,7 +22,7 @@ class ErrorView extends StatelessWidget {
             Icon(Icons.error_outline, size: 56, color: colorScheme.error),
             const SizedBox(height: 16),
             Text(
-              'Error loading data',
+              AppStrings.errorLoadingData,
               style: textTheme.titleMedium?.copyWith(color: colorScheme.error),
             ),
             const SizedBox(height: 8),
@@ -33,7 +35,7 @@ class ErrorView extends StatelessWidget {
             ElevatedButton.icon(
               onPressed: onRetry,
               icon: const Icon(Icons.refresh),
-              label: const Text('Retry'),
+              label: const Text(AppStrings.retry),
             ),
           ],
         ),
